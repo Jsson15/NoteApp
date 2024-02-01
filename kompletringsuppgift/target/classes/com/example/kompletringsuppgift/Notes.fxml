@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.kompletringsuppgift.NoteController"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <!-- Add padding to the VBox -->
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <ListView fx:id="notesListView" VBox.vgrow="ALWAYS">
+        <items>
+            <FXCollections fx:factory="observableArrayList" />
+        </items>
+    </ListView>
+
+    <HBox spacing="10">
+        <!-- Add padding to the HBox -->
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+
+        <Button fx:id="addButton" text="New Note" onAction="#addButtonClicked" />
+        <Button fx:id="addNoteButton" text="Add Note" onAction="#addNoteButtonClicked" />
+        <!-- Add Remove Note button -->
+        <Button fx:id="removeButton" text="Remove Note" onAction="#removeButtonClicked" />
+    </HBox>
+
+    <VBox spacing="10">
+        <HBox spacing="10">
+            <Label text="Title:" />
+            <TextField fx:id="titleField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Add padding to the VBox containing text fields -->
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+
+        <TextArea fx:id="contentArea" VBox.vgrow="ALWAYS" />
+
+        <HBox spacing="10">
+            <Label text="Tag:" fx:id="contentLabel" />
+
+            <!-- Add padding to the HBox containing tagsListView -->
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- Define tagsListView here -->
+            <ListView fx:id="tagsListView" HBox.hgrow="ALWAYS" />
+
+            <HBox spacing="10">
+                <Button fx:id="addTagButton" text="Add Tag" onAction="#addTagButtonClicked" />
+                <Button fx:id="removeTagButton" text="Remove Tag" onAction="#removeTagButtonClicked" disable="true" />
+            </HBox>
+        </HBox>
+    </VBox>
+</VBox>
